@@ -8,20 +8,18 @@ import {
 } from './actionTypes';
 
 export const deleteUser = (idx) =>{
-    return async (dispatch) => {
-        dispatch({
-        type: USERS_LOADING
-    })
-    axios.post('http://localhost:1337/delElem',{
-        index:idx
-    })
-    .then(data=>{
+    console.log('aaa');
+    return async dispatch  =>{
+        console.log('aaa');
+        const data = await axios.post('http://localhost:1337/delElem',{
+            index:idx   
+        });
         return dispatch({
             type: USERS_SUCCESS,
             users: data.data,
         })
-    })
 
+    };
 }
 export const getUsers = () => {
     return async (dispatch) => {

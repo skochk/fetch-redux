@@ -1224,7 +1224,7 @@ app.listen(port, (err) => {
   }
 
 app.get('/getobj', function(req,res){
-    console.log('got an request for object');
+    // console.log('got an request for object');
     res.send(JSON.stringify(object));
 })
 

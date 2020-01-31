@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { getUsers as getUsersAction , deleteUser } from '../../actions/getUsers';
+import { getUsers as getUsersAction , deleteUser as deleteUserAction } from '../../actions/getUsers';
 import Todo from '../../components/Todos/Todo';
 import { Router , Link , Switch , Route} from 'react-router-dom';
 export class index extends Component {
@@ -15,7 +15,7 @@ export class index extends Component {
     
 
     render() {
-        const { status, users } = this.props
+        const { status, users, deleteUser } = this.props
         console.log(status, users)
         let data;
         if(status === 'loading'){
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = dispatch => {
     return {
         getUsers: ()=>{ dispatch(getUsersAction()) },
-        deleteUser: (idx)=>{ dispatch(deleteUser(idx))},
+        deleteUser: (idx)=>{ dispatch(deleteUserAction(idx))},
     }
 }
 
