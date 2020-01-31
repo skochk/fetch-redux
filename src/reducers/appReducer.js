@@ -30,7 +30,7 @@ export default function(state=initialState, action){
             })
             console.log(state)
         case USERS_ERR: 
-            update(state, {
+            return update(state, {
                 status: { $set: 'err'}
             })
         default:
