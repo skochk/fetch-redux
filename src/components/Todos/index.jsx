@@ -27,9 +27,10 @@ export class index extends Component {
                         <div style={{border: '1px solid'}}>
                             <h4>{el.id}</h4>
                             <h4>{el.title}</h4>
-                            <div style={{border:'1px solid red'}} onClick={()=>deleteUser(idx)}>delete</div>
                         </div>
                         </Link>
+                        <div style={{border:'1px solid red'}} onClick={()=>deleteUser(idx)}>delete</div>
+
                     </>
                 )
             })

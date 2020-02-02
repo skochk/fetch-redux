@@ -18,7 +18,7 @@ function App() {
         
         <Route exact path="/" component={Header}/>
         <Route exact path="/todos" component={Todos}/>
-        <Route exact   path="/" component={KokoitaComponent}/>
+        <Route exact path="/" component={KokoitaComponent}/>
         <Route path="/todos/:id" component={Todo}/>
       </Provider>
     </BrowserRouter>
