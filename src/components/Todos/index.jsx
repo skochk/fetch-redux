@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUsers as getUsersAction , deleteUser as deleteUserAction } from '../../actions/getUsers';
 import Todo from '../../components/Todos/Todo';
-import { Router , Link , Switch , Route} from 'react-router-dom';
+import { Router , Link , Route , BrowserRouter} from 'react-router-dom';
 export class index extends Component {
     constructor(props){
         super(props);
@@ -15,19 +15,22 @@ export class index extends Component {
     
 
     render() {
-        const { status, users, deleteUser } = this.props
-        console.log(status, users)
+        const { status, users, deleteUser } = this.props;
         let data;
         if(status === 'loading'){
             data = <h1>Loading</h1>
         } else if (status === 'success') {
             data = users.map((el, idx) => {
                 return (
-                    <div style={{border: '1px solid'}}>
-                        <h4>{el.id}</h4>
-                        <h4>{el.title}</h4>
-                        <div style={{border:'1px solid red'}} onClick={()=>deleteUser(idx)}>delete</div>
-                    </div>
+                    <>
+                        <Link to={`/todos/${idx+1}`}>
+                        <div style={{border: '1px solid'}}>
+                            <h4>{el.id}</h4>
+                            <h4>{el.title}</h4>
+                            <div style={{border:'1px solid red'}} onClick={()=>deleteUser(idx)}>delete</div>
+                        </div>
+                        </Link>
+                    </>
                 )
             })
         } else {
